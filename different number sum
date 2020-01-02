@@ -1,0 +1,95 @@
+/*
+
+in this problem you have to sum some number those are not pear and you have to preat  maximum number....
+
+example:
+input:
+6
+5 
+1 2 3 4 5
+5
+1 2 -3 4 5
+4
+1 -2 -3 4
+5
+1 2 -3 -4 5
+output:
+9
+6
+5
+7
+
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+#define  min3(a,b,c)            min(a,min(b,c))
+ 
+int solve() {
+ 
+        int n,sumOfone=0,sumOftwo=0;
+        cin>>n;
+        bool one=true,two=false,minusDekhsi=false;
+        for(int i=0;i<n;i++)
+        {
+            int x;
+            cin>>x;
+            if(x>=0)
+            {
+                if(minusDekhsi)
+                {
+                    if(sumOfone>=sumOftwo)
+                    {
+                        sumOfone+=x;
+                    }
+                    else
+                    {
+                        sumOftwo+=x;
+                    }
+                    minusDekhsi=false;
+                }
+                else if(one)
+                {
+                    sumOfone+=x;
+                    one=false;
+                    two=true;
+                    //cout<<sumOfone<<endl;
+                }
+                else if(two)
+                {
+                    sumOftwo+=x;
+                    two=false;
+                    one=true;
+                    //cout<<sumOftwo<<endl;
+                }
+            }
+            else 
+            {
+                one = true;
+                two = false;
+                minusDekhsi=true;
+            }
+        }
+        cout<<max(sumOfone,sumOftwo)<<endl;
+        return 0;
+        
+}
+ 
+ 
+ 
+ 
+int main()
+{
+    //Input//freopen("input.txt", "r", stdin);
+    //Output//freopen("output.txt", "w", stdout)
+ 
+    int test = 1, tc = 0;
+    scanf("%d", &test);
+   // (void)getchar();
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+ 
+}

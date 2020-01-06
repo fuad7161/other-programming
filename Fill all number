@@ -1,0 +1,238 @@
+/*
+in this problem you have to fill all cell where the number is 0 with a distinact number ;
+example
+if i take number 5
+let the size of array is 5;
+then the numbers are
+3 0 1 0 5
+you have to fill all number with distinact number
+like 
+3 2 1 4 5
+or 
+3 4 1 2 5
+
+in this array any number should not be same;
+and here is the code below
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int siv[108];
+
+int solve() {
+    
+    int n;
+    cin>>n;
+    int a[n+1];
+    for(int i=1;i<=n;i++)
+    {
+        cin>>a[i];
+    }
+
+    for(int i=1;i<=n-2;i++)
+    {
+        if(abs(a[i]-a[i+2])==2&&a[i]!=0&&a[i+2]!=0)
+        {
+            int x = (a[i]+a[i+2])/2;
+            if(a[i+1]==0)
+            a[i+1]= x;
+        }
+    }
+
+    for(int i=1;i<=n;i++)
+    {
+        if(a[i]!=0)
+        {
+            siv[a[i]]=1;
+        }
+    }
+
+    start:
+    for(int i=1;i<=n;i++)
+    {
+        if(i==1&&a[i]==0&&i!=n)
+        {
+            if(i!=n&&a[i+1]!=0)
+            {
+                int x = a[i+1];
+                int y = x;
+                y--;
+                int z = x;
+                z++;
+                if(siv[y]==0&&y>=1)
+                {
+                    a[i] = y;
+                    siv[y]=1;
+                }
+                else if(siv[z]==0&&z<=n)
+                {
+                    a[i] = z;
+                    siv[z]=1;
+                }
+                else 
+                {
+                    for(int j = 1;j<=n;j++)
+                    {
+                        if(siv[j]==0)
+                        {
+                            a[i] = j;
+                            siv[j]=1;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if(i==n&&a[i]==0&&i!=1)
+        {
+            if(i!=1&&a[i-1]!=0)
+            {
+                int x = a[i-1];
+                int y = x;
+                y--;
+                int z = x;
+                z++;
+                if(siv[y]==0&&y>=1)
+                {
+                    a[i] = y;
+                    siv[y]=1;
+                }
+                else if(siv[z]==0&&z<=n)
+                {
+                    a[i] = z;
+                    siv[z]=1;
+                }
+                else 
+                {
+                    for(int j = 1;j<=n;j++)
+                    {
+                        if(siv[j]==0)
+                        {
+                            a[i] = j;
+                            siv[j]=1;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(a[i]==0)
+        {
+            if(i!=n&&a[i+1]!=0)
+            {
+                int x = a[i+1];
+                int y = x;
+                y--;
+                int z = x;
+                z++;
+                if(siv[y]==0&&y>=1)
+                {
+                    a[i] = y;
+                    siv[y]=1;
+                }
+                else if(siv[z]==0&&z<=n)
+                {
+                    a[i] = z;
+                    siv[z]=1;
+                }
+                else 
+                {
+                    for(int j = 1;j<=n;j++)
+                    {
+                        if(siv[j]==0)
+                        {
+                            a[i] = j;
+                            siv[j]=1;
+                            break;
+                        }
+                    }
+                }
+            }
+            else  if(i!=1&&a[i-1]!=0)
+            {
+                int x = a[i-1];
+                int y = x;
+                y--;
+                int z = x;
+                z++;
+                if(siv[y]==0&&y>=1)
+                {
+                    a[i] = y;
+                    siv[y]=1;
+                }
+                else if(siv[z]==0&&z<=n)
+                {
+                    a[i] = z;
+                    siv[z]=1;
+                }
+                else 
+                {
+                    for(int j = 1;j<=n;j++)
+                    {
+                        if(siv[j]==0)
+                        {
+                            a[i] = j;
+                            siv[j]=1;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                a[i]=1;
+            }
+        }
+        
+    }
+    for(int z1=1;z1<=n;z1++)
+    {
+        if(a[z1]==0) {goto start;}
+    }
+    int cnt=0;
+    /*for(int i=1;i<=n;i++)
+    {
+        if(abs(a[i]-a[i+1])==1&&i!=n)
+        {
+            cnt++;
+            while(abs(a[i]-a[i+1])==1&&i!=n)
+            {
+                i++;
+            }
+        }
+    }*/
+    //cout<<cnt<<endl;
+
+    for(int i=1;i<=n; i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    /*for(int i=1;i<=n;i++)
+    {
+        cout<<siv[i]<<" ";
+    }
+    cout<<endl;*/
+
+    return 0;
+}
+ 
+ 
+ 
+ 
+int main()
+{
+ 
+    int test = 1, tc = 0;
+    //scanf("%d", &test);
+   // (void)getchar();
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+ 
+    return 0;
+}

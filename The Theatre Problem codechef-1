@@ -1,0 +1,171 @@
+/*
+Author: Fuadul Hasan(fuadul202@gmail.com)
+BSMRSTU,Gopalganj
+*/
+//#include<bits/stdc++.h> 
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <algorithm>
+#include <cmath>
+#include <vector>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <queue>
+#include <ctime>
+#include <cassert>
+#include <complex>
+#include <string>
+#include <cstring>
+#include <chrono>
+#include <random>
+#include <queue>
+#include <bitset>
+using namespace std;
+
+#define  max4(a,b,c,d) max(d,max(a,max(b,c)))
+
+long long total = 0;
+
+int solve()
+{
+    int a3[5][5];
+    for(int i=1;i<=4;i++){
+        for(int j=1;j<=4;j++){
+            a3[i][j]=0;
+        }
+    }
+    int n,back=0,x;
+    char c;
+    scanf("%d",&n);
+    while(n--){
+        cin>>c;
+        scanf("%d",&x);x/=3;
+        if(x==1) a3[x][c-64]++;
+        else if(x==2) a3[x][c-64]++;
+        else if(x==3) a3[x][c-64]++;
+        else if(x==4) a3[x][c-64]++;
+    }
+
+ 
+    int mx;
+    std::vector<int> v;
+    int z1 ,z2;
+    /*for(int j=1;j<=4;j++){
+         mx = 0;
+        for(int i=1;i<=4;i++){
+            int mxx = max4(a3[1][i],a3[2][i],a3[3][i],a3[4][i]);
+            if(mxx == a3[j][i]&&mx<=mxx&&ck[i]==0){
+                mx = max(mx,mxx);
+                z1  = i;  
+            }
+        }
+        int mxx = max4(a3[1][j],a3[2][j],a3[3][j],a3[4][j]);
+        if(mxx == 0) back++;
+        v.push_back(mx);
+        ck[z1] = 1;
+        // alrady got value
+        cout<<z1<<endl;
+    }*/
+
+    //liner big found
+    int h=4;
+    for(int i=1;i<=4;i++){
+    int mxx = max4(a3[1][i],a3[2][i],a3[3][i],a3[4][i]);
+        if(mxx == 0) back++;
+        }
+        mx = 0;
+        for(int i=1;i<=4;i++){
+            for(int j=1;j<=4;j++){
+                if(a3[i][j]!=0){
+                    if(mx<a3[i][j]) {
+                        z1 = i;z2 = j;
+                    }
+                    mx = max(mx,a3[i][j]);
+                }   
+            }
+        }        v.push_back(mx);
+        for(int i=1;i<=4;i++){
+            a3[i][z2] = 0;
+            a3[z1][i] = 0;
+        }
+        mx = 0;
+        for(int i=1;i<=4;i++){
+            for(int j=1;j<=4;j++){
+                if(a3[i][j]!=0){
+                    if(mx<a3[i][j]) {
+                        z1 = i;z2 = j;
+                    }
+                    mx = max(mx,a3[i][j]);
+                }   
+            }
+        }
+        v.push_back(mx);
+        for(int i=1;i<=4;i++){
+            a3[i][z2] = 0;
+            a3[z1][i] = 0;
+        }
+        mx = 0;
+        for(int i=1;i<=4;i++){
+            for(int j=1;j<=4;j++){
+                if(a3[i][j]!=0){
+                    if(mx<a3[i][j]) {
+                        z1 = i;z2 = j;
+                    }
+                    mx = max(mx,a3[i][j]);
+                }   
+            }
+        }
+        v.push_back(mx);
+        for(int i=1;i<=4;i++){
+            a3[i][z2] = 0;
+            a3[z1][i] = 0;
+        }
+        mx = 0;
+        for(int i=1;i<=4;i++){
+            for(int j=1;j<=4;j++){
+                if(a3[i][j]!=0){
+                    if(mx<a3[i][j]) {
+                        z1 = i;z2 = j;
+                    }
+                    mx = max(mx,a3[i][j]);
+                }   
+            }
+        }
+        v.push_back(mx);
+        for(int i=1;i<=4;i++){
+            a3[i][z2] = 0;
+            a3[z1][i] = 0;
+        }
+
+    sort(v.begin(),v.end());
+    int tk = 25;
+    long long s = 0;
+    for(int i=0;i<4;i++){
+        s += (long long)(v[i]*tk);
+        tk+=25;
+    }
+    back*=100;
+    int xxx = s- back;
+    printf("%d\n", xxx);
+    total +=(long long)xxx;
+    return 0;
+
+}
+
+int main()
+{
+    int test = 1, tc = 0;
+    scanf("%d", &test);
+   // (void)getchar();
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+    printf("%lld\n",total);
+    total = 0;
+    return 0;
+}

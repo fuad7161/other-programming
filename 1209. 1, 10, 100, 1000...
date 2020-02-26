@@ -1,0 +1,122 @@
+/*
+https://acm.timus.ru/problem.aspx?space=1&num=1209
+*/
+
+/*
+Author: Fuadul Hasan(fuadul202@gmail.com)
+BSMRSTU,Gopalganj
+*/
+#include <set>
+#include <map>
+#include <list>
+#include <queue>
+#include <ctime>
+#include <deque>
+#include <stack>
+#include <cmath>
+#include <queue>
+#include <bitset>
+#include <vector>
+#include <cstdio>
+#include <string>
+#include <chrono>
+#include <random>
+#include <cassert>
+#include <complex>
+#include <cstdlib>
+#include <numeric>
+#include <sstream>
+#include <fstream>
+#include <climits>
+#include <stdio.h>
+#include <cstring>
+#include <iterator>
+#include <iostream>
+#include <algorithm>
+#include <unordered_set>
+#include <unordered_map>
+//#include<bits/stdc++.h>
+using namespace std;
+ 
+int         cinn()              {int x; scanf("%d", &x); return x;}
+long long   cinl()              {long long x; scanf("%I64d", &x); return x;}
+
+#define  F                      first
+#define  S                      second
+#define  cinn					cinn()
+#define  arr(a,n)				a,a+n
+#define  gcd(a,b)               __gcd(a,b)
+#define  lcm(a,b)               (a*b)/gcd(a,b)
+#define  PI                     acos(-1.0)
+#define  pb                     push_back
+#define  ll                     long long int
+#define  nl                     printf("\n");
+#define  no                     printf("NO");
+#define  yes                    printf("YES");
+#define  sqr(x)					((x)*(x))
+#define  min3(a,b,c)            min(a,min(b,c))
+#define  min4(a,b,c,d)          min(d,min(a,min(b,c)))
+#define  max3(a,b,c)            max(a,max(b,c))
+#define  max4(a,b,c,d)          max(d,max(a,max(b,c)))
+#define  happy					cin.tie(0);
+#define  coding					ios::sync_with_stdio(false);
+#define  vi                     std::vector<int>
+#define  vll                    std::vector<ll>
+#define  mpsi                   std::map<string, int>
+#define  rep(i,a,b) 			for(int i=a;i<=b;i++)
+#define  ren(i,a,b)		 		for(int i=a;i>=b;i--)
+#define  all(n) 				n.begin(),n.end()
+
+
+typedef  	pair<int,int> ii;
+typedef 	std::vector<ii> vii;
+/*
+	scanf("%[^\n]%*c", str);
+*/
+/*..........error........*/
+#define error(args...) {vector<string>_v=split(#args,',');err(_v.begin(),args);cout<<endl;}
+vector<string> split(const string &s,char c) {vector<string>v;stringstream ss(s);string x;
+while(getline(ss,x,c))v.emplace_back(x);return move(v);}void err(vector<string>::iterator it) {}
+template<typename T,typename... Args>void err(vector<string>::iterator it,T a,Args...args) {
+cout<<it->substr((*it)[0]==' ',it->length())<< " = " << a << " ";err(++it,args...);}
+/*.........error...........*/
+ 
+const int mod           = 1e9 + 7;
+const int inf           = (int)2e9 + 5;
+const ll  Inf           = (ll)1e18 + 5;
+const int N             = 1e7 + 5;
+const int nn           = 3e5 + 5;
+
+int siv[2000];
+int siv1[200];
+
+vi v;
+
+int solve()
+{
+	//happy coding
+	
+	ll n = cinl();
+	
+	ll x = (4*(n-1)*2)+1;
+	ll y = sqrt(x);
+	if(y*y==x){
+		v.pb(1);
+	}else{
+		v.pb(0);
+	}
+
+	//error();
+	return 0;
+}
+ 
+int main()
+{
+    int test = 1, tc = 0;
+    scanf("%d", &test);//(void)getchar();
+    while (test--)solve();
+    for(auto i: v){
+    	cout<<i<<" ";
+    }nl;
+    return 0;
+}

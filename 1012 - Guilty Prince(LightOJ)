@@ -1,0 +1,146 @@
+/*
+Author: Fuadul Hasan(fuadul202@gmail.com)
+BSMRSTU,Gopalganj
+*/
+#include <set>
+#include <map>
+#include <list>
+#include <queue>
+#include <ctime>
+#include <deque>
+#include <stack>
+#include <cmath>
+#include <queue>
+#include <bitset>
+#include <vector>
+#include <cstdio>
+#include <string>
+#include <chrono>
+#include <random>
+#include <cassert>
+#include <complex>
+#include <cstdlib>
+#include <numeric>
+#include <sstream>
+#include <fstream>
+#include <climits>
+#include <stdio.h>
+#include <cstring>
+#include <iterator>
+#include <iostream>
+#include <algorithm>
+#include <unordered_set>
+#include <unordered_map>
+//#include <bits/stdc++.h>
+using namespace std;
+ 
+int         cinn()              {int x; scanf("%d", &x); return x;}
+long long   scll()              {long long x; scanf("%lld", &x); return x;}
+double      scd()               {double x; scanf("%lf", &x); return x;}
+void        coutt(int x)        {printf("%d ", x);}
+ 
+#define  scll                   scll()
+#define  gcd(a,b)               __gcd(a,b)
+#define  lcm(a,b)               (a*b)/gcd(a,b)
+#define  PI                     acos(-1.0)
+#define  vi                     std::vector<int>
+#define  vll                    std::vector<ll>
+#define  vit                    vector<int> :: iterator
+#define  sit                    set<int> :: iterator
+#define  mpsi                   std::map<string, int>
+#define  pb                     push_back
+#define  ll                     long long int
+#define  ld                     long double
+#define  ull                    unsigned long long int
+#define  min3(a,b,c)            min(a,min(b,c))
+#define  min4(a,b,c,d)          min(d,min(a,min(b,c)))
+#define  max3(a,b,c)            max(a,max(b,c))
+#define  max4(a,b,c,d)          max(d,max(a,max(b,c)))
+#define  nl                     printf("\n");
+#define  no                     printf("No");
+#define  yes                    printf("Yes");
+#define  F                      first
+#define  S                      second
+#define  happy					cin.tie(0);
+#define  coding					ios::sync_with_stdio(false);
+
+typedef pair<int,int> ii;
+typedef std::vector<ii> vii;
+ 
+const int mod           = 1e9 + 7;
+const int inf           = (int)2e9 + 5;
+const ll  Inf           = (ll)1e18 + 5;
+const int N             = 1e6 + 5;
+const int nn           = 4e5 + 5;
+
+/*bool isPalindrom1(string s){int n = s.size();
+for(int i=0;i<=n/2;i++){if(s[i]!=s[n-1-i]){return false;}}return true;}
+bool isPalindrom2(string s1,string s2){int n = s1.size();
+for(int i=0;i<n;i++){if(s1[i]!=s2[n-1-i]){return false;}}return true;}*/
+
+char a[100][100];
+bool v[100][100];
+int n,m,sum;
+
+void dfs(int x,int y)
+{
+	v[x][y] = true;
+	sum++;
+	if(x-1>=0 && a[x-1][y]!='#' && !v[x-1][y]){
+		dfs(x-1,y);
+	}
+	if(x<m-1 && a[x+1][y]!='#' && !v[x+1][y]){
+		dfs(x+1,y);
+	}
+	if(y-1>=0 && a[x][y-1]!='#' && !v[x][y-1]){
+		dfs(x,y-1);
+	}
+	if(y<n-1 && a[x][y+1]!='#' && !v[x][y+1]){
+		dfs(x,y+1);
+	}
+}
+
+void zero()
+{
+	for(int i=0;i<100;i++){
+		for(int j=0;j<100;j++){
+			a[i][j] = 0;
+			v[i][j] = false;
+		}
+	}
+}
+
+int t=1;
+int solve()
+{
+	happy coding
+	zero();
+	cin>>n>>m;
+	int x,y;
+	for(int i=0;i<m;i++){
+		for(int j=0;j<n;j++){
+			cin>>a[i][j];
+			if(a[i][j]=='@'){
+				x = i; y = j;
+			}
+		}
+	}
+	 sum = 0;
+	dfs(x,y);
+	printf("Case %d: %d\n",t++,sum );
+	return 0;
+}
+
+int main()
+{
+    int test = 1, tc = 0;
+    scanf("%d", &test);
+    //(void)getchar();
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+ 
+    return 0;
+}

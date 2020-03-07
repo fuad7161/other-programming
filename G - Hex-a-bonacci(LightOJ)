@@ -1,0 +1,88 @@
+/*http://lightoj.com/practice_contest_showproblem.php?contest_id=1403&problem=G */
+
+/*
+Author: Fuadul Hasan(fuadul202@gmail.com)
+BSMRSTU,Gopalganj
+*/
+#include<bits/stdc++.h>
+using namespace std;
+void    		print(int n)    {printf("%d", n);}
+void    		printl(long long n)     {printf("%I64d ", n);}
+long long    	readline(){long long x;scanf("%I64d", &x);return x;}
+/*
+1.#define  gcd(a,b) __gcd(a,b) 2. #define  lcm(a,b) (a*b)/gcd(a,b) 3. #define  PI acos(-1.0) 4.#define  sqr(x) ((x)*(x))
+5.#define  min3(a,b,c) min(a,min(b,c))6.#define  min4(a,b,c,d) min(d,min(a,min(b,c)))7.#define  max3(a,b,c) max(a,max(b,c))
+8.#define  max4(a,b,c,d) max(d,max(a,max(b,c)))
+*/
+//.............ignore it................//
+/*....... scanf.......*/
+template <typename T> inline void readline(T &n) {
+  n = 0; int f = 1; register int ch = getchar();
+  for (; !isdigit(ch); ch = getchar()) if (ch == '-') f = -1;
+  for (; isdigit(ch); ch = getchar()) n = (n << 3) + (n << 1) + ch - '0';n = n * f;}
+template <typename T, typename TT> inline void readline(T &n, TT &m) { readline(n); readline(m); }
+template <typename T, typename TT, typename TTT> inline void readline(T &n, TT &m, TTT &l) { readline(n, m); readline(l);}
+/*..........error........*/
+#define error(args...) {vector<string>_v=split(#args,',');err(_v.begin(),args);cout<<endl;}
+vector<string> split(const string &s, char c) {
+  vector<string>v; stringstream ss(s); string x;
+  while (getline(ss, x, c))v.emplace_back(x); return move(v);
+} void err(vector<string>::iterator it) {}
+template<typename T, typename... Args>void err(vector<string>::iterator it, T a, Args...args) {
+cout << it->substr((*it)[0] == ' ', it->length()) << " = " << a << " "; err(++it, args...);}
+//............ignore it..................//
+typedef   pair<int, int> ii;
+typedef   std::vector<ii> vii;
+#define   vi   std::vector<int>
+#define   vll  std::vector<ll>
+#define   all(n) n.begin(),n.end()
+#define  mpsi std::map<string, int>
+#define  pb                     push_back
+#define  ll                     long long int
+#define  nl                     printf("\n");
+#define  happy          cin.tie(0);
+#define  coding         ios::sync_with_stdio(false);
+int dx[8]= {1,0,-1,0,-1,-1,1,1};
+int dy[8]= {0,1,0,-1,-1,1,-1,1};
+const int mod           = 1e9 + 7;
+const int inf           = (int)2e9 + 5;
+const ll  Inf           = (ll)2e18 + 5;
+const int N             = 500 + 5;
+const int N1            =  10000007;
+
+int a, b, c, d, e, f;
+int a1[10005];
+int fn( int n,int a1[] ) {
+    if( n == 0 ) return a;
+    if( n == 1 ) return b;
+    if( n == 2 ) return c;
+    if( n == 3 ) return d;
+    if( n == 4 ) return e;
+    if( n == 5 ) return f;
+    if(a1[n]!=0) return a1[n];
+    else{
+    	a1[n] = (fn(n-1,a1)%N1 + fn(n-2,a1)%N1 + fn(n-3,a1)%N1 + fn(n-4,a1)%N1 + fn(n-5,a1)%N1 + fn(n-6,a1)%N1)%N1 ;
+    	return a1[n]%N1;
+    }
+}
+int z=1;
+int solve()
+{
+	//happy coding
+
+	int n;
+	cin>>a>>b>>c>>d>>e>>f>>n;
+	printf("Case %d: %d\n",z++, fn(n,a1) % 10000007);
+	for(int i=0;i<10005;i++){
+    		a1[i] = 0;
+    	}
+	//error()
+	return 0;
+}
+
+int main(){
+	int test = 1, tc = 0;
+	scanf("%d", &test);//(void)getchar();
+	while (test--)solve();
+	return 0;
+}

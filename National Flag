@@ -1,0 +1,20 @@
+//https://toph.co/p/national-flag
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+	long long a,b,z,z1,x;
+    cin>>a>>b;
+    x =  a-b;
+    if(x%2==0)
+    {
+        x = x/2;
+         z = x*5,z1 = x*3;
+        if((a-z)==(b-z1)&&x!=0&&z<=a&&z1<=b) cout<<z<<" "<<z1<<endl;
+        else cout<<"Not possible"<<endl;
+    }
+     else cout<<"Not possible"<<endl;
+
+
+	return 0;
+}

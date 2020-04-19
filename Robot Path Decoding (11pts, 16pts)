@@ -1,0 +1,75 @@
+//Author: Fuadul Hasan(fuadul202@gmail.com)
+//BSMRSTU,Gopalganj
+#include<bits/stdc++.h>
+using namespace std;int tc = 1;
+#define happy ios::sync_with_stdio(false);
+#define coding  cin.tie(0);
+#define pb  push_back
+#define mp make_pair
+#define ll long long
+//#define pr pair<int, int> 
+#define vpr vector<pr> 
+#define vi std::vector<int>
+#define vll std::vector<ll>
+#define all(n) n.begin(),n.end()
+#define Unique(c) (c).resize(unique(all(c))-(c).begin())
+#define Test printf("Case #%d: ",tc++);
+#define YES printf("YES\n");
+#define NO printf("NO\n");
+#define Yes printf("Yes\n");
+#define No printf("No\n");
+const int M = 1e9;
+const ll  Inf = (ll)2e18 + 5;
+const int N   = 2e5 + 5;
+
+string s;
+int ptr;
+
+array<ll ,2> pr() {
+	array<ll,2> r= {0,0};
+	while(1){
+		if(ptr>= s.size()) break;
+		else if(s[ptr]==')')  break;
+		else if(s[ptr]=='N'){
+			--r[1];
+			if(r[1]<0)r[1] += M;
+		}else if(s[ptr]=='S'){
+			++r[1];
+			if(r[1]>=M) r[1]-=M;
+		}else if(s[ptr]=='E'){
+			++r[0];
+			if(r[0]>=M) r[0]-=M;
+		}else if(s[ptr]=='W'){
+			--r[0];
+			if(r[0]<0)r[0] += M;
+		}else{
+			int d = 	s[ptr++] - '0';
+			++ptr;
+			array<ll,2> p = pr();
+			r[0] = (r[0]+d*p[0])%M;
+			r[1] = (r[1]+d*p[1])%M;
+		}
+		++ptr;
+	}
+
+	return r;
+}
+
+int solve() 
+{
+	//happy coding
+
+	cin>>s;
+	ptr = 0;
+	array<ll, 2> ar = pr();
+	Test;
+	cout<<ar[0]+1<<" "<<ar[1]+1<<endl;
+	
+
+	return 0;
+}
+int main(){
+	int test = 1;
+	scanf("%d", &test);
+	while (test--)solve();return 0;
+}

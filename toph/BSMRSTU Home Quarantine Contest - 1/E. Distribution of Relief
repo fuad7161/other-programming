@@ -1,0 +1,53 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+#define MAX 10007 
+int tree[4*MAX]; 
+int arr[MAX]; 
+int gcd(int a, int b) 
+{ if (a == 0) return b; return gcd(b%a, a); } 
+int lcm(int a, int b) {  return a*b/gcd(a,b); } 
+void build(int node, int start, int end) 
+{ 
+    if (start==end)  { tree[node] = arr[start];   return; } 
+    
+    int mid = (start+end)/2; 
+    build(2*node, start, mid); 
+    build(2*node+1, mid+1, end); 
+    int left_lcm = tree[2*node]; 
+    int right_lcm = tree[2*node+1]; 
+  
+    tree[node] = lcm(left_lcm, right_lcm); 
+}  
+int query(int node, int start, int end, int l, int r) 
+{ 
+    if (end<l || start>r) 
+        return 1; 
+    if (l<=start && r>=end) 
+        return tree[node]; 
+    int mid = (start+end)/2; 
+    int left_lcm = query(2*node, start, mid, l, r); 
+    int right_lcm = query(2*node+1, mid+1, end, l, r); 
+    return lcm(left_lcm, right_lcm); 
+} 
+int main() 
+{ 
+
+    int n;
+	cin>>n;
+	for(int i=0;i<n;i++){
+		cin>>arr[i];
+	}
+
+    int q;
+	cin>>q;
+	build(1, 0, n);
+	while(q--){
+		long long x,y;
+		cin>>x>>y;x--;y--;
+		
+		cout << query(1, 0, n, x, y) << endl; 
+	} 
+  
+    return 0; 
+} 

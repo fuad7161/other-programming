@@ -1,0 +1,92 @@
+//Author: Fuadul Hasan(fuadul202@gmail.com)
+//BSMRSTU,Gopalganj
+#include<bits/stdc++.h>
+using namespace std;int tc = 1;
+#define happy ios::sync_with_stdio(false);
+#define coding  cin.tie(0);
+#define F first
+#define S second
+#define mp make_pair
+#define ll long long
+#define Pi atan(1)*4
+#define pb  push_back
+#define vpr vector<pr> 
+#define pr pair<int, int> 
+#define vi std::vector<int>
+#define vll std::vector<ll>
+#define YES printf("YES\n");
+#define NO printf("NO\n");
+#define Yes printf("Yes\n");
+#define No printf("No\n");
+#define all(n) n.begin(),n.end()
+#define point(x) setprecision(x)
+#define Test printf("Case %d: ",tc++);
+#define Unique(c) (c).resize(unique(all(c))-(c).begin())
+#define vout(v) for (auto z: v) cout << z << " "; cout << endl;
+
+const int M = 1e9 + 7;
+const ll  Inf = (ll)2e18 + 5;
+const int N   = 2e5 + 5;
+ll vis[N],res[N];
+int *st;
+
+int findGDC(int ss,int se,int qs,int qe,int si){
+  if(ss > qe || se < qs){
+    return 0;
+  }
+  if(qs<=ss&&qe>=se){
+    return st[si];
+  }
+
+  int mid = ss + (se-ss)/2;
+  return __gcd(findGDC(ss,mid,qs,qe,si*2+1),findGDC(mid+1,se,qs,qe,si*2+2));
+} 
+
+int fingRangeGCD(int ss,int se,int a[],int n){
+  if(ss < 0 ||se > n-1 || ss > se){
+    cout<<"Invalid Argument"<<endl;
+    return -1;
+  }
+  return findGDC(0,n-1,ss,se,0);
+}
+
+int construcST(int a[],int ss,int se,int si){
+  if(ss==se){
+    st[si] = a[ss];
+    return st[si];
+  }
+
+  int mid = ss + (se-ss)/2;
+  st[si] = __gcd(construcST(a,ss,mid,si*2+1),construcST(a,mid+1,se,si*2+2));
+  return st[si];
+}
+
+int *constructSegmentTree(int a[],int n){
+  int height = (int) (ceil(log2(n)));
+  int size = 2*(int)pow(2,height) - 1;
+  st = new int[size];
+  construcST(a,0,n-1,0);
+  return st;
+}
+
+
+
+int solve() 
+{
+  //happy coding
+
+  int a[] = {2,3,6,9,5};
+  int n = sizeof(a)/sizeof a[0];
+  constructSegmentTree(a,n);
+
+  int l,r;
+  l = 0;
+  r = 1;
+  cout<<fingRangeGCD(l,r,a,n)<<endl;
+  return 0;
+}
+int main(){
+  int test = 1;
+  //scanf("%d", &test);
+  while (test--)solve();return 0;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>fuad</title>
+</head>
+<body>
+
+<math>
+	<i>f</i><sub>s</sub>(n) = 
+	∫
+	<sub><sub><small>0</small></sub></sub>
+	<sup><sup><i><small>l</small></i></sup></sup>
+	 F(x) sin
+</math>
+
+<math>
+	<sup>n&pi;x</sup>&frasl;<sub><i>l</i></sub>
+	dx
+</math>
+
+
+<br>
+<br>
+
+<math>
+	<i>f</i><sub>c</sub>(n) = 
+	∫
+	<sub><sub><small>0</small></sub></sub>
+	<sup><sup><i><small>l</small></i></sup></sup>
+	 F(x) cos
+</math>
+
+<math>
+	<sup>n&pi;x</sup>&frasl;<sub><i>l</i></sub>
+	dx
+</math>
+
+
+<br>
+<br>
+
+<math>
+	<i>F(x)</i> = 
+	<sup>2</sup>&frasl;<sub><i>l</i></sub>
+	&sum;
+	 <i>f</i><sub>s</sub>(n)
+	 sin
+</math>
+
+<math>
+	<sup>n&pi;x</sup>&frasl;<sub><i>l</i></sub>
+</math>
+
+<br>
+<br>
+
+<math>
+	<i>F(x)</i> = 
+
+	<sup>1</sup>&frasl;<sub><i>l</i></sub>
+	 <i>f</i><sub>c</sub>(0) + 
+	<sup>2</sup>&frasl;<sub><i>l</i></sub>
+	&sum;
+	 <i>f</i><sub>c</sub>(n)
+	 cos
+</math>
+
+<math>
+	<sup>n&pi;x</sup>&frasl;<sub><i>l</i></sub>
+</math>
+
+	
+<br>
+<br>
+</body>
+</html>

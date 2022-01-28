@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+template<typename T> 
+void Print(T value){
+    cout<<value<<endl;
+}
+
+int main(){
+    cin.tie(0);ios::sync_with_stdio(false);
+    
+    int n = 10;
+    double nn = 10.12;
+    string s = "faud";
+
+    Print<int>(n);
+    Print<double>(nn);
+    Print<string>(s);
+    
+
+    return 0;
+}

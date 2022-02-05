@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+vector<string> make_cube(long long n){
+    vector<string> tem;
+    for (int i = 1; i * i * i <= n; i++) {
+        string s = to_string(i*i*i);
+        tem.push_back(s);
+    }
+    return tem;
+}
+
+string find_largest(string num,vector<string> v){
+    
+    reverse(v.begin(), v.end());
+    int total_cube = v.size();
+    for (int i = 0; i < total_cube; i++) {
+        string cur = v[i];
+        int idx = 0;
+        for (int j = 0; j < (int)num.size(); j++) {
+            if (num[j] == cur[idx]) idx++;
+            if ((int)(cur.size()) == idx)return cur;           
+        }
+    }
+    return "There is no cube.";
+}
+
+void fidn_largest_cube(long long n){
+    vector<string> cubes = make_cube(n);
+    string num = to_string(n);
+    string ans = find_largest(num, cubes);
+    cout << "Largest Cube that can be formed from "<< n << " is " << ans << endl;
+}
+ 
+// Driver Code
+int main(){
+
+
+    long long int n;
+    cin>>n;
+    fidn_largest_cube(n);
+
+
+    return 0;
+}

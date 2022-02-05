@@ -1,0 +1,106 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 1e5+5;
+set<int>g[N];
+set<pair<int,int>>edge, ans_edge;
+int vis[N];
+int n , m;
+
+void cutting_down_method(int u){
+    vis[u] = 1;
+    for(int v: g[u]){
+        if(vis[v] == 0){
+            cutting_down_method(v);
+        }else{
+            edge.erase({u,v});
+        }
+    }
+}
+
+void building_up_method(int u, int v){
+    if(vis[u] == 1 and vis[v] == 1){
+        
+    }else{
+        ans_edge.insert({u,v});
+    }
+    vis[u] = 1;
+    vis[v] = 1;
+}
+    
+int solve() 
+{
+    
+    //Test
+
+    cin>>n>>m;
+
+    int x,y;
+    for(int i=0;i<m;i++){
+        cin>>x>>y;
+        g[x].insert(y);
+        g[y].insert(x);
+        edge.insert({x,y});
+        edge.insert({y,x});
+    }
+
+    cutting_down_method(1);
+
+    cout<<"Spanning tree with cutting down method: \n";
+    for(auto [x,y]: edge){
+        cout<<x<<" "<<y<<endl;
+    }
+
+    edge.clear();
+    for(int i=0;i<=n;i++){
+        vis[i] = 0;
+    }
+    for(int i=0;i<=n;i++){
+        for(auto j: g[i]){
+            edge.insert({i,j});
+        }
+    }
+    for(auto [u,v]: edge){
+        building_up_method(u,v);
+    }
+    cout<<"Spanning tree with building up method: \n";
+    for(auto [x,y]: ans_edge){
+        cout<<x<<" "<<y<<endl;
+    }
+
+    return 0;
+    //error();
+}
+int main(){
+
+    int test = 1;
+    //cin>>test;
+    while (test--)solve();return 0;
+}
+
+/*
+I know who....
+*/
+
+/*
+
+5 7
+1 2
+1 3
+1 4
+3 4
+2 4
+2 5
+4 5
+Spanning tree with cutting down method:
+1 2
+2 4
+4 3
+4 5
+Spanning tree with building up method:
+1 2
+1 3
+1 4
+2 5
+
+*/

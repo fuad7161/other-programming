@@ -1,0 +1,116 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 1e5+5;
+vector<int> g[N];
+int s[N];
+int t[N];
+int vis[N];
+int n , m;
+int timer  = 0;
+map<pair<int,int>,bool>tree_edge,tree_node;
+
+void dfs(int u){
+    s[u] = timer++;
+    vis[u] = 1;
+    for(auto v: g[u]){
+        if(vis[v] == 0){
+            dfs(v);
+            tree_edge[{u,v}] = 1;
+        }
+    }
+    t[u] = timer++;
+}
+
+
+int solve() 
+{
+    
+    //Test
+
+    cin>>n>>m;
+    int x,y;
+    vector<pair<int,int>> v;
+    for(int i=0;i<m;i++){
+        cin>>x>>y;
+        v.push_back({x,y});
+        g[x].push_back(y);
+        tree_node[{x,y}] = 1;
+    }
+    
+    dfs(1);
+
+    for(auto i: tree_edge){
+        int u = i.first.first;
+        int v = i.first.second;
+        cout<<"Tree edge :"<<u<<" "<<v<<endl;
+    }
+
+
+    for(auto i: tree_node){
+        int u = i.first.first;
+        int v = i.first.second;
+        if(tree_edge.find({u,v}) == tree_edge.end()){
+            if(s[u] < s[v] and s[v] < t[v] and t[v] < t[u]){
+                cout<<"forword edge :"<<u<<" "<<v<<endl;
+            }
+        }
+    }
+
+
+    for(auto i: tree_node){
+        int u = i.first.first;
+        int v = i.first.second;
+        if(tree_edge.find({u,v}) == tree_edge.end()){
+            if(s[v] < s[u] and s[u] < t[u] and t[u] < t[v]){
+                cout<<"back edge :"<<u<<" "<<v<<endl;
+            }
+        }
+    }
+
+
+    for(auto i: tree_node){
+        int u = i.first.first;
+        int v = i.first.second;
+        if(tree_edge.find({u,v}) == tree_edge.end()){
+            if(s[v] < t[v] and t[v] < s[u] and s[u] < t[u]){
+                cout<<"cross edge :"<<u<<" "<<v<<endl;
+            }
+        }
+    }
+
+    return 0;
+    //error();
+}
+int main(){
+
+    int test = 1;
+    //cin>>test;
+    while (test--)solve();return 0;
+}
+
+/*
+I know who....
+*/
+
+/*
+6 9
+1 2
+1 3
+3 4
+2 5
+4 6
+3 6
+4 5
+4 1
+5 1
+Tree edge :1 2
+Tree edge :1 3
+Tree edge :2 5
+Tree edge :3 4
+Tree edge :4 6
+forword edge :3 6
+back edge :4 1
+back edge :5 1
+cross edge :4 5
+*/

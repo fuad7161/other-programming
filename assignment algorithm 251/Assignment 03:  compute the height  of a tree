@@ -30,3 +30,19 @@ int main(){
 		cout<<"Maximum height of "<<i<<" is "<<height[i]<<endl;
 	}
 }
+
+7
+2 1 2 3 1 4 3
+1 2
+1 3
+1 4
+3 5
+4 6
+4 7
+Maximum height of 1 is 8
+Maximum height of 2 is 2
+Maximum height of 3 is 4
+Maximum height of 4 is 6
+Maximum height of 5 is 2
+Maximum height of 6 is 3
+Maximum height of 7 is 3

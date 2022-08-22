@@ -1,0 +1,9 @@
+auto dfs = [&](const auto &self , int u , int p)->void{
+        int poss = c-2 + (u == 0);
+        for(int v: adj[u]){
+            if(v == p)continue;
+            ans = (1LL * ans * poss)%M;
+            --poss;
+            self(self , v, u);
+        }
+    };

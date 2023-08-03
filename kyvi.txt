@@ -1,1 +1,2 @@
-its the instruction.
+install kivy
+ 	pip install kivy

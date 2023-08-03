@@ -1,0 +1,10 @@
+input file that will take text and another input that will take number
+
+1. and it will store the text and number
+with date 
+2. list will be in any order(order maybe number , updated time etc)
+3. I can export all information.
+4. edit update and delete list
+5. clear history
+
+

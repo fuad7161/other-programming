@@ -47,6 +47,14 @@ now we can change the permissions using octal code.
 example:
 chmod 640 filepath
 
+less filepath
+more filepath
+
+/search-name (for searching the name)
+-i (for ignore the case sensetivity)
+
+
+
 
 test:
 replace the specific text from the file.

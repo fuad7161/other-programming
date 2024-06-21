@@ -1,0 +1,12 @@
+reguler expression symboles
+
+^ $ . * + () {} [] [^] ?
+
+grep '^search-name' filename (search all name starting with search-name)
+
+grep 's-n$' filename(search end with name)
+
+grep -r 'char1.char2' filename
+
+
+grep -r 'regex' filename/folder-name

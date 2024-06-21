@@ -1,0 +1,14 @@
+grep 'search-name' filepath (its a case cencetive)
+=> grep 'she' text.txt
+grep -i 'search-name' filepath(its a case incencetive)
+=> grep -i 'fedora' /etc/
+grep -r 'search-name' folder path (its will show all file path related to this name)
+=> grep -r 'fedora' /etc/
+grep -ir 'search-name' folder path (this will show all file path related to this name with ignore the case)
+grep -ir 'fedora' /etc/
+
+invert-matchs
+grep -vi 'search-name' folderptah(show all filepath that not match with the search-name)
+
+grep -oi 'search-name' folder-path
+

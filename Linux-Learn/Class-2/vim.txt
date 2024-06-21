@@ -1,0 +1,9 @@
+/search-name (this will search the specific name)
+/search-name\c (this will search case insencetive pattern)
+:set number
+
+:number (move to the specific line)
+
+dd (to cut the line of text)
+yy(to copy the line of text)
+p (peast the line of text)

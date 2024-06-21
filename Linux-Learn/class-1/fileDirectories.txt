@@ -1,0 +1,18 @@
+ls -a
+ls -la
+ls -alh
+pwd (print working directory)
+
+cp (copy source and destination)
+cp -a source destination (preserve all attibute of the file)
+mv (move source and destination)
+delete a directory
+rmdir path_to_delete
+echo "I am fuadul Hasan" > myself.txt (create a file and write text from command line)
+echo "this is a picture" > dog.jpg (make a jpg file)
+stat dog.jpg (stat info about this image)
+- hardlink(Inode)
+
+- softlink
+
+ln path_to_target_file path_to_link_file

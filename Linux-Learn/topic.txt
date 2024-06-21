@@ -1,0 +1,14 @@
+=> ip a
+=> ls --help
+=> ls -l
+=> journalctl --help
+=> man journalctl
+=> man man
+=> apropos director (give the all command related to director)
+auto compilation in command
+=> systemctl list-dependencies
+
+if we tab twics then all the suggestion will appear
+ls /usr/ <tab tab> (then all the suggestion will be available)
+ssh -v fuad@192.a68.0.104 (for debuging)
+ssh hostname (for change the localhost user)

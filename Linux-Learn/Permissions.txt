@@ -1,0 +1,63 @@
+chgrp wheel filepath (will change the group of the file)
+sudo chown jane filepath(will change the owner of the file)
+
+some file identifier
+Directory -> 'd'
+Regular file -> '-'
+Character Device -> 'c'
+Link -> '|'
+Socket file -> 's'
+Pipe -> 'p'
+Block Device -> 'b'
+
+-----Permissions-----
+--xxx---xxx----xxx--
+(user)(group)(other)
+
+'r' -> u,g,o can read the file
+'w' -> Write to file 
+'x' -> Execute(run the file)
+'-' -> No Permissions
+
+change mode
+chmod permissions file/directory
+user u+ -> u+w / u+rw / u+rwx
+group g+ -> g+w / g+rw / g+rwx
+others o+ -> o+w / o+rw / o+rwx
+
+Remove permissions
+user u- -> u-w / u-rw / u-rwx
+group g- -> g-w / g-rw / g-rwx
+others o- -> o-w / o-rw / o-rwx
+
+we also do the same using '=' sign.
+we can use all operation at once.
+example:
+chmod u+rw,g=r,o= file/directory
+
+Octal Permissions
+stat filepath
+Access: (0644/-rw-r--r--)
+here we get some octal value (0644)
+-  rw- r-- r--
+0  110 100 100
+0  6   4   4
+this is how octal value are constructed.
+now we can change the permissions using octal code.
+example:
+chmod 640 filepath
+
+
+test:
+replace the specific text from the file.
+sed -i 's/enabled/disabled/g' file.txt 
+sed -i 's/enabled/disabled/gI' file.txt 
+sed -i '2,4 s/enabled/disabled/g' filename
+sed -i 's#g/w#gg/ww#g' filename
+sed -i 's|str-to-remove|str-to-add|g' filename
+
+grep -Ev '\b[A-Z][a-z]{2}\b' /etc/nsswitch.conf > /home/bob/filtered1
+
+# range set by MINCATWIDTH and MAXCATWIDTH.
+Open /home/bob/testfile file in any editor (vi, nano etc) and move line present on line no:1049 to line no: 5.
+Delete first 1000 lines from /home/bob/testfile file.

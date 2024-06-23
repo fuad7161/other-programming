@@ -10,3 +10,30 @@ grep -r 'char1.char2' filename
 
 
 grep -r 'regex' filename/folder-name
+
+grep -Er '0+' folder-name
+
+{} => Previous Element can exist this many times.
+egrep -r '0{3,}' folder-name(it will find all the path that matches atleast 3 zeros.)
+
+'value{lower,upper}'
+'value{exactly}'
+
+? => Make the Previous Element Optional
+
+egrep -r 'enabled|disabled' folder-name
+
+
+[] => ranges or sets
+[a-z] , [0,9] , [abz954]
+
+egep -r 'c[au]t' folder-name
+
+egrep -r '/dev/[a-z]*[0-9]?' /etc/
+
+() => subexpressions
+
+[^] => Negated Ranges or sets
+
+egrep -r 'http[^s]' folder-name
+

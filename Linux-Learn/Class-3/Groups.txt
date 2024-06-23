@@ -1,0 +1,26 @@
+sudo groupadd groupname
+
+sudo gpasswd --add john developers
+
+groups gname(to show group)
+
+sudo usermod -g developers john
+
+gpasswd --help (to show all the instruction)
+
+sudo groupdel programmers
+
+
+sudo usermod -a -G developers jane (add user to the developers group)
+
+sudo groupadd -g 9875 cricket (create group with group id : 9875)
+
+sudo groupmod -n soccer cricket (change the group name)
+
+sudo usermod -g rugby sam
+
+Quiz:
+Create a user sam with UID 5322, also make it a member of soccer group.
+sudo useradd --uid 5322 sam
+sudo usermod -a -G soccer sam
+

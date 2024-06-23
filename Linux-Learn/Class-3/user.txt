@@ -1,0 +1,38 @@
+sudo useradd usename
+sudo useradd --uid 1100 username (specify the id)
+sudo passwd usename
+
+sudo userdel usename
+sudo userdel --remove usename
+
+ls -l /home/ (show all user)
+ls -ln /home/ (show numaric)
+cat /etc/passwd
+
+id (to show details about current user)
+
+whoami (to show current user name)
+
+sudo useradd --system system-account-name (create a system account)
+
+to change user details
+sudo usermod --home /home/otherdirectory --move-home john
+
+change user name
+sudo usermod --login jane john 
+
+change user shell
+sudo usermod --shell /bin/othershell jane
+
+disable the account
+sudo usermod --lock jane
+sudo usermod --unlock jane
+
+set an expiredate for an user
+sudo usermod --expiredate YYYY-MM-DD jane
+
+sudo chage --list fuad(To see your password modification details)
+
+
+sudo useradd -s /bin/csh jack (add user with a specified shell)
+sudo chage --lastday 0 jane (jane make the password immediately change the password)

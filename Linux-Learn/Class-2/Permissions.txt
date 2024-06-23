@@ -69,3 +69,6 @@ grep -Ev '\b[A-Z][a-z]{2}\b' /etc/nsswitch.conf > /home/bob/filtered1
 # range set by MINCATWIDTH and MAXCATWIDTH.
 Open /home/bob/testfile file in any editor (vi, nano etc) and move line present on line no:1049 to line no: 5.
 Delete first 1000 lines from /home/bob/testfile file.
+
+diff file1 file2 > file3
+grep -c '^2' filename > store-filename
